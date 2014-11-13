@@ -2,7 +2,7 @@
 
 namespace Bernard\Pimple;
 
-use Pimple;
+use Pimple\Container as Pimple;
 
 /**
  * @package Bernard

@@ -5,16 +5,16 @@ namespace Bernard\Tests\Pimple;
 use Bernard\Envelope;
 use Bernard\Message\DefaultMessage;
 use Bernard\Pimple\PimpleAwareRouter;
-use Pimple;
+use Pimple\Container as Pimple;
 
 class PimpleAwareRouterTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
         $this->pimple = new Pimple;
-        $this->pimple['my.service'] = $this->pimple->share(function () {
+        $this->pimple['my.service'] = function () {
             return 'var_dump';
-        });
+        };
 
         $this->router = new PimpleAwareRouter($this->pimple);
     }
